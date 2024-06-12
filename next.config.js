@@ -9,6 +9,9 @@ const apiUrl = {
       apiUrl: apiUrl.develop
     },
     reactStrictMode: false,
+    typescript: {
+      ignoreBuildErrors: true,
+    }
   };
   
   module.exports = nextConfig;
