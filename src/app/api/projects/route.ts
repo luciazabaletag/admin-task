@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import conectarDB from "@/libs/database";
 import { validationProjectSchema } from "@/app/validation/validationSchema";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/app/lib/auth";
 import Task from "@/app/models/Task";
 
 export async function POST(req: Request, res: Response) {
