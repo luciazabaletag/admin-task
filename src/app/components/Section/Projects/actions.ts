@@ -8,7 +8,7 @@ export async function getProjects(){
 
     const res = await fetch(`${process.env.apiUrl!}/projects`, {
         method: 'GET',
-        headers: headers(),
+        headers: new Headers(headers()),
         cache: 'no-store',
     })
     if (!res) {
@@ -64,7 +64,7 @@ export async function deleteProject(id: Project['_id']){
     try {
         const response = await fetch(`${process.env.apiUrl!}/projects/${id}`, {
         method: 'DELETE',
-        headers: headers(),
+        headers: new Headers(headers()),
         cache: 'no-store',
         })
     
