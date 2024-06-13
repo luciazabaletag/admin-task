@@ -9,6 +9,7 @@ export async function getProjects(){
     const res = await fetch(`${process.env.apiUrl!}/projects`, {
         method: 'GET',
         headers: headers(),
+        cache: 'no-store',
     })
     if (!res) {
         throw new Error("Ha ocurrido un error");
@@ -30,10 +31,11 @@ export async function createProject(data: ProjectFormData, user: UserObject['_id
         const response = await fetch(`${process.env.apiUrl!}/projects`, {
         method: 'POST',
         body: JSON.stringify({data, user}),
+        cache: 'no-store',
         })
     
         const resp = await response.json()
-        console.log(resp)
+        
         return resp
         
     } catch (error) {
@@ -62,7 +64,8 @@ export async function deleteProject(id: Project['_id']){
     try {
         const response = await fetch(`${process.env.apiUrl!}/projects/${id}`, {
         method: 'DELETE',
-        headers: headers()
+        headers: headers(),
+        cache: 'no-store',
         })
     
         const resp = await response.json()
