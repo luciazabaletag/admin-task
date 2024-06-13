@@ -55,7 +55,7 @@ export const CreateTask: React.FC<CreateTaskProps> = ({
   return (
     <>
       <Transition appear show={isOpenModalCreateTask} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModalCreateTask}>
+        <Dialog as="div" className="relative z-50" onClose={closeModalCreateTask}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

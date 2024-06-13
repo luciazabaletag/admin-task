@@ -5,13 +5,11 @@ import { validationProjectSchema } from "@/app/validation/validationSchema";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import Task from "@/app/models/Task";
-import { NextApiResponse } from "next";
 
-export async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: Request, res: Response) {
     
     try {
         await conectarDB()
-        res.setHeader('Cache-Control', 'no-store')
         const resp = await req.json();
         const validation = validationProjectSchema.safeParse(resp.data)
         if (!validation.success) {

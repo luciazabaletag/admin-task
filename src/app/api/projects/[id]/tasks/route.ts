@@ -3,13 +3,11 @@ import Project from "@/app/models/Project";
 import Task from "@/app/models/Task";
 import conectarDB from "@/libs/database";
 import { validationTaskSchema } from "@/app/validation/validationSchema";
-import { NextApiResponse } from "next";
 
-export async function POST(req: NextRequest, { params }: { params: { id: string } }, res: NextApiResponse) {
+export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
 
     try {
         await conectarDB()
-        res.setHeader('Cache-Control', 'no-store')
         const { id } = params;
         const project = await Project.findById(id)
         const request = await req.json();

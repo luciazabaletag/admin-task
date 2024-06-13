@@ -18,7 +18,6 @@ export async function createTask(formData: TaskFormData, projectId: Project['_id
         const response = await fetch(`${process.env.apiUrl!}/projects/${projectId}/tasks`, {
         method: 'POST',
         body: JSON.stringify(formData),
-        cache: 'no-store',
         })
     
         const resp = await response.json()
