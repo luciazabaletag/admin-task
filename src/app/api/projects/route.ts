@@ -32,6 +32,7 @@ export async function GET(req: Request) {
     try {
         await conectarDB()    
         const session = await getServerSession(authOptions)
+        console.log('session', session)
         const user = session?.user?.userId
 
         const project = await Project.find({

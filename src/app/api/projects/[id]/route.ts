@@ -14,7 +14,9 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
         const { id } = params;
         const project = await Project.findById(id).populate('tasks')
         const session = await getServerSession(authOptions)
+        console.log('session', session)
         const user = session?.user?.userId
+        console.log('user',user)
 
         if (!project) {
             return NextResponse.json({ error: "Proyecto no encontrado"}, { status: 404 })
